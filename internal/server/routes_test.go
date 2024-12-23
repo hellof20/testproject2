@@ -19,6 +19,7 @@ func TestHandler(t *testing.T) {
 	}
 	defer resp.Body.Close()
 	// Assertions
+	fmt.Println(resp.StatusCode)
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("expected status OK; got %v", resp.Status)
 	}

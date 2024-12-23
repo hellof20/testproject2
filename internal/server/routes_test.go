@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -12,6 +13,7 @@ func TestHandler(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(s.HelloWorldHandler))
 	defer server.Close()
 	resp, err := http.Get(server.URL)
+	fmt.Println(server.URL)
 	if err != nil {
 		t.Fatalf("error making request to server. Err: %v", err)
 	}
